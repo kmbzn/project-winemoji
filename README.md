@@ -1,6 +1,6 @@
 # 🍷 project-winemoji 😂
 
-<img src="logo.png", height="128px", width="128px">
+![logo](logo.png)
 
 ## Winemoji: Specialized font for resolving emoji rendering errors in wine environments
 
