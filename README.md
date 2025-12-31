@@ -1,6 +1,8 @@
 # 🍷 project-winemoji 😂
 
-![logo](logo.webp)
+<p align="center">
+  <img src="logo.webp" width="192" alt="Main Logo" />
+</p>
 
 ## Winemoji: Specialized font for resolving emoji rendering errors in wine environments
 
