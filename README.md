@@ -17,13 +17,13 @@
 
 리눅스의 GDI 렌더러가 지원하지 못하는 이모지 데이터를 분석하여, 어떤 폰트든 Wine 환경에서 이모지가 정상적으로 표시되도록 패치해 줍니다.
 
-추가로, 빌더를 직접 돌리기 번거로운 사용자들을 위해 저작권 문제로부터 자유로운 **11종의 무료 한글 폰트 Pre-built 파일**도 함께 제공합니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있습니다.)
+추가로, 빌더를 직접 돌리기 번거로운 사용자들을 위해 저작권 문제로부터 자유로운 **10종의 무료 한글 폰트 Pre-built 파일**도 함께 제공합니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있습니다.)
 
 ## 1. 폰트만 바로 사용하기
 
-빌더를 직접 실행하지 않아도, 폰트만 적용할 수 있도록 저작권 이슈로부터 자유로운 한글 폰트 11종에 이모지를 미리 적용하여 `fonts/` 폴더에 담아두었습니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있음)
+빌더를 직접 실행하지 않아도, 폰트만 적용할 수 있도록 저작권 이슈로부터 자유로운 한글 폰트 10종에 이모지를 미리 적용하여 `fonts/` 폴더에 담아두었습니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있음)
 
-### 제공되는 11종 폰트 목록
+### 제공되는 10종 폰트 목록
 
 | 분류 | 폰트 이름 | 다운로드 링크 |
 | :--- | :--- | :--- |
@@ -32,7 +32,6 @@
 | | 나눔바른고딕 | [NanumBarunGothic-winemoji.ttf](fonts/NanumBarunGothic-winemoji.ttf) |
 | **모던 고딕** | 프리텐다드 (Pretendard) | [Pretendard-Regular-winemoji.ttf](fonts/Pretendard-Regular-winemoji.ttf) |
 | | IBM Plex Sans KR | [IBMPlexSansKR-winemoji.ttf](fonts/IBMPlexSansKR-winemoji.ttf) |
-| **코딩 / 특수** | D2Coding | [D2Coding-winemoji.ttf](fonts/D2Coding-winemoji.ttf) |
 | **개성있는 폰트** | 주아 (Jua) | [Jua-winemoji.ttf](fonts/Jua-winemoji.ttf) |
 | | 도현 (DoHyeon) | [DoHyeon-winemoji.ttf](fonts/DoHyeon-winemoji.ttf) |
 | | 해바라기 (Sunflower) | [Sunflower-winemoji.ttf](fonts/Sunflower-winemoji.ttf) |
