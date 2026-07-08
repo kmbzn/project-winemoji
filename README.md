@@ -1,151 +1,145 @@
 # 🍷 project-winemoji 😂
 
 <p align="center">
-  <img src="logo.webp" width="192" alt="Main Logo" />
+  <img src="img/logo.webp" width="192" alt="Main Logo" />
 </p>
 
-## Winemoji: Specialized font for resolving emoji rendering errors in wine environments
+## Winemoji: Universal tool for resolving emoji rendering errors in Wine environments
 
-🍷😂 **Winemoji**는 리눅스의 Wine 환경에서 카카오톡과 같은 윈도우 기반 앱을 사용할 때 이모지 폰트가 깨지는(tofu) 문제를 해결하기 위해 제작된 특수 목적 폰트입니다. 기존에 이러한 문제로 불편함을 겪고 있던 분들에게 최적의 사용 환경을 제공하는 것을 목표로 시작되었습니다.
+🍷😂 **Winemoji**는 리눅스의 Wine 환경에서 카카오톡과 같은 윈도우 앱을 사용할 때 이모지 폰트가 깨지는(tofu) 문제를 해결하기 위해 고안된 **자동화 폰트 빌더(GUI Builder)** 프로젝트입니다.
 
-**Winemoji** is a specialized font designed to resolve the issue of broken emoji fonts (tofu) when using Windows-based applications like KakaoTalk within the Wine environment on Linux systems. It was created with the goal of providing an optimal user experience for those who have previously encountered inconvenience due to this problem.
+***Winemoji** is an **automated font builder (GUI Builder)** project designed to solve the problem of emoji fonts breaking (tofu) when using Windows apps like KakaoTalk in a Wine environment on Linux.*
 
-![tofu](tofu.webp)
+<p align="center">
+  <img src="img/tofu.webp" alt="Tofu issue" width="45%" />
+  <img src="img/chat.webp" alt="Resolved Emojis" width="45%" />
+</p>
 
-## 설치 방법
+리눅스의 GDI 렌더러가 지원하지 못하는 이모지 데이터를 분석하여, 어떤 폰트든 Wine 환경에서 이모지가 정상적으로 표시되도록 패치해 줍니다.
 
-1. 본 repository에서 `Winemoji-NBG.ttf` 파일을 다운로드합니다.
-2. 리눅스 시스템의 폰트 폴더로 파일을 이동합니다.
+추가로, 빌더를 직접 돌리기 번거로운 사용자들을 위해 저작권 문제로부터 자유로운 **11종의 무료 한글 폰트 Pre-built 파일**도 함께 제공합니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있습니다.)
+
+## 1. Builder
+
+**Winemoji Builder**를 사용하면, 사용자가 적용하고자 하는 폰트에 이모지를 손쉽게 병합할 수 있습니다.
+
+> **라이선스 주의사항 (License Compliance)**  
+> Winemoji Builder를 사용하여 폰트를 병합 및 수정할 때는 **반드시 원본 폰트의 라이선스(저작권)를 확인하고 준수하셔야 합니다.**  
+> 개인적인 용도로만 수정이 허용되는지, 재배포가 불가능한 상용 폰트인지 등을 확인하시기 바라며, 이로 인해 발생하는 모든 저작권 분쟁의 책임은 사용자 본인에게 있습니다. 가급적 OFL(Open Font License) 계열의 폰트 사용을 권장합니다.
+
+### 실행 방법
+```bash
+cd builder
+./run.sh
+```
+
+### 1.1. 빌더 실행 및 폰트 선택
+```bash
+cd builder
+./run.sh
+```
+본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 드롭다운 메뉴를 클릭하여 폰트를 선택하세요.
+
+<p align="center">
+  <img src="img/builder_initial.webp" width="80%" alt="Builder Initial" />
+</p>
+
+### 1.2. 폰트 병합 진행
+하단의 **Build Winemoji** 버튼을 클릭하면 폰트 병합이 진행됩니다. 
+
+<p align="center">
+  <img src="img/builder_building.webp" width="80%" alt="Builder Building" />
+</p>
+
+### 1.3. 완료
+성공적으로 빌드가 완료되면 결과물은 자동으로 기존 폰트가 있는 경로에 저장됩니다. (권한 문제로 저장이 불가한 경우 `~/.local/share/fonts` 에 저장)
+
+<p align="center">
+  <img src="img/builder_success.webp" width="80%" alt="Builder Success" />
+</p>
+
+## 2. 폰트만 바로 사용하기
+
+빌더를 직접 실행하지 않아도, 폰트만 적용할 수 있도록 저작권 이슈로부터 자유로운 한글 폰트 11종에 이모지를 미리 적용하여 `fonts/` 폴더에 담아두었습니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있음)
+
+### 제공되는 11종 폰트 목록
+
+| 분류 | 폰트 이름 | 다운로드 링크 |
+| :--- | :--- | :--- |
+| **나눔 계열** | 나눔고딕 | [NanumGothic-winemoji.ttf](fonts/NanumGothic-winemoji.ttf) |
+| | 나눔명조 | [NanumMyeongjo-winemoji.ttf](fonts/NanumMyeongjo-winemoji.ttf) |
+| | 나눔바른고딕 | [NanumBarunGothic-winemoji.ttf](fonts/NanumBarunGothic-winemoji.ttf) |
+| **모던 고딕** | 프리텐다드 (Pretendard) | [Pretendard-Regular-winemoji.ttf](fonts/Pretendard-Regular-winemoji.ttf) |
+| | IBM Plex Sans KR | [IBMPlexSansKR-winemoji.ttf](fonts/IBMPlexSansKR-winemoji.ttf) |
+| **코딩 / 특수** | D2Coding | [D2Coding-winemoji.ttf](fonts/D2Coding-winemoji.ttf) |
+| **개성있는 폰트** | 주아 (Jua) | [Jua-winemoji.ttf](fonts/Jua-winemoji.ttf) |
+| | 도현 (DoHyeon) | [DoHyeon-winemoji.ttf](fonts/DoHyeon-winemoji.ttf) |
+| | 해바라기 (Sunflower) | [Sunflower-winemoji.ttf](fonts/Sunflower-winemoji.ttf) |
+| | 고운돋움 (GowunDodum) | [GowunDodum-winemoji.ttf](fonts/GowunDodum-winemoji.ttf) |
+| | 검은고딕 (BlackHanSans) | [BlackHanSans-winemoji.ttf](fonts/BlackHanSans-winemoji.ttf) |
+
+### 설치 방법
+1. 저장소의 `fonts/` 폴더에서 원하는 폰트를 다운로드합니다.
+2. 리눅스 시스템의 폰트 폴더로 복사하고 폰트 캐시를 갱신합니다.
     ```bash
     mkdir -p ~/.local/share/fonts
-    cp Winemoji-NBG.ttf ~/.local/share/fonts/
-    ```
-3. 폰트 캐시를 갱신합니다.
-    ```bash
+    cp fonts/Pretendard-Regular-winemoji.ttf ~/.local/share/fonts/
     fc-cache -fv
     ```
 
-### 💬 카카오톡 적용 방법
+## 카카오톡 적용 방법
+1. 카카오톡 설정 창(⚙️ → 설정 → 화면 → 기본 → 글씨체)을 엽니다.
+2. 글씨체 목록에서 **설치하신 폰트 이름 + Winemoji** (예: `Pretendard Regular Winemoji`)를 선택합니다.
 
-![settings](settings.webp)
+<p align="center">
+  <img src="img/settings.webp" width="60%" alt="KakaoTalk Settings" />
+</p>
 
-1. ⚙️ → **설정** → **화면** → **기본** → **글씨체** 메뉴로 이동합니다.
-2. 글씨체 선택에서 **Winemoji NBG** (or **와인모지 NBG**)를 선택합니다.
-3. 카카오톡을 재시작하면 한글과 이모지가 정상적으로 출력되는 것을 확인할 수 있습니다.
+3. 카카오톡을 재시작하면 한글과 흑백 이모지가 정상적으로 출력됩니다.
 
-![](restart.webp)
-
-> 해당 구현 방식의 한계로 low surrogate 영역에 해당하는 1,024개의 이모지만 사용 가능합니다. Apple의 자체 조합형 이모지나 일부 최신 이모지들의 경우 **여전히 표시되지 않을 수** 있습니다.
-![chat](chat.webp)
+<p align="center">
+  <img src="img/restart.webp" width="40%" alt="Restart KakaoTalk" />
+</p>
 
 ## Why not color emojis?
+본 프로젝트에서는 컬러 이모지 계열을 사용하지 않고 흑백(Noto Emoji)을 채택했습니다.
 
-본 프로젝트에서 컬러 이모지(Noto Color Emoji 등)를 사용하지 않고 흑백(Noto Emoji)을 선택한 이유는 다음과 같습니다.
+- **Wine GDI의 한계**: 이 프로젝트의 목표는 리눅스 Wine의 구형 GDI 렌더러 호환성 확보입니다. GDI는 최신 컬러 폰트 규격(`CBDT/CBLC`, `SBIX` 등)을 처리하지 못하며, 컬러 데이터를 강제로 병합할 경우 폰트 자체가 인식되지 않거나 카카오톡 등 윈도우 프로그램이 마비되는 문제가 발생할 수 있습니다.
 
-- **Wine GDI의 기술적 한계**: 이 프로젝트의 핵심 목표는 리눅스 Wine의 구형 GDI 렌더러 호환성 확보입니다. GDI는 최신 컬러 폰트 규격(CBDT/CBLC, SBIX 등)을 정상적으로 처리하지 못하며, 컬러 데이터를 강제로 병합할 경우 폰트 자체가 인식되지 않거나 레이아웃 붕괴가 발생할 수 있습니다.
+- **렌더링 안정성**: 흑백 outline 폰트는 폰트 크기나 해상도에 관계없이 벡터 방식으로 선명하게 렌더링됩니다. 이는 비트맵 정보가 포함된 컬러 이모지보다 저해상도 Wine 환경에서 보다 높은 가독성과 안정성을 제공합니다.
 
-- **렌더링 안정성**: 흑백 outline 폰트는 폰트 크기나 해상도에 관계없이 벡터 방식으로 선명하게 렌더링됩니다. 이는 비트맵 기반이 섞인 컬러 이모지보다 저해상도 Wine 환경에서 훨씬 높은 가독성과 안정성을 제공합니다.
+- **파일 최적화 및 복잡성 제거**: 컬러 레이어를 병합하는 과정은 폰트 파일의 용량을 증가시키며, 수동으로 크기를 조절하는 과정에서 데이터가 손실될 위험이 존재합니다. 본 프로젝트는 실용성과 문제 해결에 집중하기 위해 상대적인 안정적인 흑백 폰트를 소스로 채택했습니다. 실제 Windows PC 카카오톡도 흑백 이모지만 지원하고 있습니다.
 
-- **파일 최적화 및 복잡성 제거**: 컬러 레이어를 병합하는 공정은 폰트 파일의 용량을 증가시키며, 수동으로 크기를 조절하는 과정에서 데이터가 손실될 위험이 큽니다. 본 프로젝트는 실용성과 확실한 문제 해결을 위해 안정적인 흑백 폰트를 소스로 채택했습니다. 실제 Windows PC 카카오톡도 흑백 이모지만 지원하고 있습니다.
+## 구현 원리 및 기술적 특징
+Winemoji Builder는 카카오톡(Wine GDI)에서 렌더링 오류를 일으키는 원인들을 완벽하게 해결하는 구조를 가지고 있습니다.
 
-## 구현 원리
+1. **Low Surrogate 강제 매핑 (`U+DC00` ~ `U+DFFF`)**: Wine GDI는 Plane 1 이상의 이모지를 제대로 그리지 못하고 두 개의 Surrogate 문자로 분리하여 출력합니다. Winemoji는 원본 이모지를 Low Surrogate 영역에 매핑하여 이모지 깨짐 현상을 해결합니다.
+2. **충돌 방지**: Surrogate 영역 공간 한계(1,024개)로 인해 발생하는 충돌을 막기 위해, 한국인이 주로 쓰는 얼굴 표정이나 손동작 등에 높은 가중치를 두어 중요한 이모지들이 반영될 수 있도록 합니다.
+3. **국기 및 Ligature 지원**:
+   - `GSUB`, `GDEF` 등 폰트 테이블을 유지시켜, **국기 이모지(🇺🇸)처럼 2개의 글자가 조합되어 만들어지는 이모지**도 완벽하게 지원합니다.
+   - 국기 조합용 알파벳(Regional Indicators)은 가로세로 비율을 유지한 채 60% 크기로 스케일링하고, 폰트 사이에 빈 공간이 생기지 않도록 Kerning을 적용했습니다.
+4. **High Surrogate 찌꺼기 제거**:
+   - 렌더링 과정에서 발생하는 High Surrogate 찌꺼기 문자들을 막기 위해, **Advance Width가 0인 투명 glyph**를 생성하여 덮어씌웁니다. 이모지 옆에 띄어쓰기 한 칸이 강제로 벌어지는 현상이 해결됩니다.
+5. **Auto-Scaling 및 Fallback 시스템**:
+   - 베이스 폰트의 해상도(UPEM)를 감지하고, 이모지 폰트의 모든 벡터 좌표를 이에 맞게 auto-scaling합니다.
+   - 폰트 병합 중 `fontTools` 자체 문제로 인해 에러가 발생할 경우, 백그라운드에서 이를 감지하고 에러를 유발하는 테이블을 분리한 뒤 자동으로 fallback하도록 구성했습니다.
 
-리눅스 Wine의 GDI renderer(`gdi32.dll`)는 유니코드 Plane 1 이상의 이모지(`U+1Fxxx` 등)를 정상적으로 렌더링하지 못하는 고질적인 문제가 있습니다. 카카오톡 PC버전의 텍스트 영역(입력란을 제외한)의 경우 모두 이 `gdi32.dll`을 사용하여 텍스트를 출력하도록 개발되었습니다. 이에 따라 wine 환경 상의 PC버전 카카오톡에서는 하나의 이모지가 두 개의 surrogate font로 출력됩니다. 일반적인 폰트 파일의 경우 이 surrogate 영역에 폰트를 mapping하는 경우는 없기에, 사용자 입장에서는 이모지가 두 개의 사각형 등으로 깨져서 보이게 됩니다. 이 문제를 해결하기 위해 본 프로젝트는 다음과 같은 우회로를 설계했습니다.
+## Environment & Specifications
 
-- **Low Surrogate 매핑:** Plane 1의 이모지 데이터들을 BMP(Basic Multilingual Plane) 영역 내의 **Low Surrogate (`U+DC00` ~ `U+DFFF`)** 대역에 강제 복제시켰습니다.
-- **서열 정리 logic:** 동일한 Surrogate 슬롯을 점유하려는 이모지들 간의 충돌을 방지하기 위해, 일상에서 좀 더 자주 사용되는 얼굴 표정 이모지(🤣 등)에 높은 가중치를 부여하는 자체적인 **Priority Logic**을 적용했습니다.
-- **High Surrogate 공백**: High Surrogate의 역할이 없어지므로, 폭 값이 `0`인 공백 문자로 1,024개의 영역을 채워주었습니다.
-- **메트릭스 동기화:** 나눔바른고딕의 **Ascent 800 / Descent 200** 규격에 맞춰 이모지 크기를 일괄 조정하였습니다.
-
-### How to build my own Winemoji? (Replication)
-
-기본적으로 라이선스상 폰트 편집 문제에서 자유롭고, 적용했을 때 글꼴이 선명하게 렌더링되는 특징을 가진 나눔바른고딕을 선택하여 그 기반으로 제작하였으나, 이외의 다른 폰트를 base로 삼기를 원한다면 아래 절차를 따르십시오.
-
-```bash
-sudo apt update
-sudo apt install fontforge
-```
-
-1. **준비:** **FontForge**를 설치하고 베이스가 될 폰트와 소스 이모지 폰트를 준비합니다.
-2. **이름 변경:** 라이선스 준수 및 시스템 충돌 방지를 위해 **Font Info**에서 폰트 이름을 고유한 이름(예: `MyEmoji-NBG`)으로 변경합니다.
-3. **스크립트 실행:** 아래의 FontForge python script를 실행하여 이모지를 Low Surrogate 영역으로 복사합니다.
-    - Priority 함수를 통해 🤣(U+1F923)와 같은 이모지가 🔣(U+1F523)와 같은 이모지들에 비해 higher priority를 갖도록 설정하는 것이 도움이 될 수 있습니다.
-4. **크기 조정:** 복사된 이모지들을 전체 선택하여 **Element → Transformations** 메뉴에서 베이스 폰트의 EM Size에 맞게 크기를 조절합니다.
-
-## Fontforge Paste Python Script
-```py
-import fontforge
-
-def get_priority(cp):
-    if (0x1F600 <= cp <= 0x1F64F) or (0x1F900 <= cp <= 0x1F9FF):
-        return 120
-    if (0x1F300 <= cp <= 0x1F5FF) or (0x1F1E6 <= cp <= 0x1F1FF):
-        return 100
-    if (0x1FA00 <= cp <= 0x1FAFF):
-        return 80
-    if (0x10000 <= cp < 0x20000):
-        return 50
-    return 0
-
-def migrate_emojis():
-    font = fontforge.activeFont()
-    if not font: return
-
-    font.reencode('UnicodeFull')
-    migration_plan = {}
-
-    print("Starting emoji mapping to Low Surrogate area...")
-
-    for glyph in font.glyphs():
-        cp = glyph.unicode
-        if cp < 0x10000 or cp >= 0x20000: continue
-        
-        priority = get_priority(cp)
-        if priority == 0: continue
-
-        target_low = 0xDC00 + (cp - 0x10000) % 0x400
-        
-        if target_low not in migration_plan or priority > migration_plan[target_low][0]:
-            migration_plan[target_low] = (priority, cp)
-
-    count = 0
-    for target_low, (priority, source_cp) in migration_plan.items():
-        try:
-            font.selection.select(source_cp)
-            font.copy()
-            
-            if target_low not in font: font.createChar(target_low)
-            font.selection.select(target_low)
-            font.paste()
-            
-            count += 1
-        except:
-            continue
-
-    font.changed = True
-    font.redraw()
-    print(f"Process complete: {count} emojis mapped.")
-    fontforge.postError("Complete", f"{count} emojis have been mapped to Low Surrogate area. Please adjust metrics in the GUI.")
-
-migrate_emojis()
-```
-
-## 🛠 Tested Environment
-
-| | Version
-| - | -
-| OS | Ubuntu 22.04 LTS
-| GNOME | GNOME Shell 42.9 (Wayland)
-| HW | Lenovo ThinkPad X13 Gen1
-| wine | wine-10.0
-| Verified Apps | KakaoTalk (x64)
+| Component | Version / Specification |
+| :--- | :--- |
+| **Project Version** | `1.0` |
+| **OS** | `Ubuntu 24.04 LTS` |
+| **Desktop** | `GNOME 46.0` |
+| **Wine** | `Wine 11.0` |
+| **Python** | `Python 3.12.3` |
 
 ## License
+This project is distributed under the **SIL Open Font License 1.1**.
 
-This font project is distributed under the **SIL Open Font License 1.1**.
+**Disclaimer:** We only provides a tool for modifying fonts file. We do not claim any ownership or copyright over the original base fonts or emoji fonts used in this project. All original fonts remain the property of their respective creators and are subject to their original licenses.
 
-- **NanumBarunGothic**: Copyright (c) 2013 NHN Corporation. Licensed under SIL OFL 1.1.
 - **Noto Emoji**: Copyright (c) Google Inc. Licensed under SIL OFL 1.1.
-- **Winemoji Modifications**: Copyright (c) 2025 by [KeyBaseZone](https://kmbzn.com). Licensed under SIL OFL 1.1.
+- **Winemoji Builder & Modifications**: Copyright (c) 2026 by [KeyBaseZone](https://kmbzn.com). Licensed under SIL OFL 1.1.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the conditions set forth in the SIL OFL 1.1.
