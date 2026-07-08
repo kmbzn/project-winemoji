@@ -6,9 +6,9 @@
 
 ## Winemoji: Universal tool for resolving emoji rendering errors in Wine environments
 
-🍷😂 **Winemoji**는 리눅스의 Wine 환경에서 카카오톡과 같은 윈도우 앱을 사용할 때 이모지 폰트가 깨지는(tofu) 문제를 해결하기 위해 고안된 **자동화 폰트 빌더(GUI Builder)** 프로젝트입니다.
+🍷😂 **Winemoji**는 리눅스의 Wine 환경에서 카카오톡과 같은 윈도우 앱을 사용할 때 이모지 폰트가 깨지는(tofu) 문제를 해결하기 위해 고안된 **자동화 폰트 빌더** 프로젝트입니다.
 
-***Winemoji** is an **automated font builder (GUI Builder)** project designed to solve the problem of emoji fonts breaking (tofu) when using Windows apps like KakaoTalk in a Wine environment on Linux.*
+***Winemoji** is an **automated font builder** project designed to solve the problem of emoji fonts breaking (tofu) when using Windows apps like KakaoTalk in a Wine environment on Linux.*
 
 <p align="center">
   <img src="img/tofu.webp" alt="Tofu issue" width="45%" />
@@ -17,7 +17,7 @@
 
 리눅스의 GDI 렌더러가 지원하지 못하는 이모지 데이터를 분석하여, 어떤 폰트든 Wine 환경에서 이모지가 정상적으로 표시되도록 패치해 줍니다.
 
-추가로, 빌더를 직접 돌리기 번거로운 사용자들을 위해 저작권 문제로부터 자유로운 **10종의 무료 한글 폰트 Pre-built 파일**도 함께 제공합니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있습니다.)
+추가로, 빌더를 직접 돌리기 번거로운 사용자들을 위해 저작권 문제로부터 자유로운 **10종의 한글 폰트 Pre-built 파일**도 함께 제공합니다.
 
 ## 1. 폰트만 바로 사용하기
 
@@ -62,7 +62,7 @@
 cd builder
 ./run.sh
 ```
-본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 드롭다운 메뉴를 클릭하여 폰트를 선택하세요.
+본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 선택 메뉴를 클릭하여 폰트를 선택하세요.
 
 ### 2.2. CLI 실행 방법 (명령어 모드)
 
@@ -141,7 +141,7 @@ winemoji -b /path/to/font.ttf -e /path/to/custom_emoji.ttf
 ## 구현 원리
 Winemoji Builder는 카카오톡(Wine GDI)에서 렌더링 오류를 일으키는 원인들을 완벽하게 해결하는 구조를 가지고 있습니다.
 
-1. **Low Surrogate 강제 매핑 (`U+DC00` ~ `U+DFFF`)**: Wine GDI는 Plane 1 이상의 이모지를 제대로 그리지 못하고 두 개의 Surrogate 문자로 분리하여 출력합니다. Winemoji는 원본 이모지를 Low Surrogate 영역에 매핑하여 이모지 깨짐 현상을 해결합니다.
+1. **Low Surrogate 매핑 (`U+DC00` ~ `U+DFFF`)**: Wine GDI는 Plane 1 이상의 이모지를 제대로 그리지 못하고 두 개의 Surrogate 문자로 분리하여 출력합니다. Winemoji는 원본 이모지를 Low Surrogate 영역에 매핑하여 이모지 깨짐 현상을 해결합니다.
 2. **충돌 방지**: Surrogate 영역 공간 한계(1,024개)로 인해 발생하는 충돌을 막기 위해, 한국인이 주로 쓰는 얼굴 표정이나 손동작 등에 높은 가중치를 두어 중요한 이모지들이 반영될 수 있도록 합니다.
 3. **국기 및 Ligature 지원**:
    - `GSUB`, `GDEF` 등 폰트 테이블을 유지시켜, **국기 이모지(🇰🇷)처럼 2개의 글자가 조합되어 만들어지는 이모지**도 완벽하게 지원합니다.
