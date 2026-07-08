@@ -69,21 +69,21 @@ cd builder
 본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 드롭다운 메뉴를 클릭하여 폰트를 선택하세요.
 
 <p align="center">
-  <img src="img/builder_initial.webp" alt="Builder Initial" />
+  <img src="img/builder_initial.webp" width="60%" alt="Builder Initial" />
 </p>
 
 ### 2.2. 폰트 병합 진행
 하단의 **Build Winemoji** 버튼을 클릭하면 폰트 병합이 진행됩니다. 
 
 <p align="center">
-  <img src="img/builder_building.webp" alt="Builder Building" />
+  <img src="img/builder_building.webp" width="60%" alt="Builder Building" />
 </p>
 
 ### 2.3. 완료
 성공적으로 빌드가 완료되면 결과물은 자동으로 기존 폰트가 있는 경로에 저장됩니다. (권한 문제로 저장이 불가한 경우 `~/.local/share/fonts` 에 저장)
 
 <p align="center">
-  <img src="img/builder_success.webp" alt="Builder Success" />
+  <img src="img/builder_success.webp" width="60%" alt="Builder Success" />
 </p>
 
 ## 카카오톡 적용 방법
