@@ -69,12 +69,21 @@ cd builder
 터미널에서 `winemoji` 명령어를 사용하는 것도 가능합니다.
 
 #### 2.2.1. 명령어 등록(설치) 방법
-터미널 어디서나 `winemoji` 명령어를 실행할 수 있도록 홈 디렉토리 하위에 링크를 등록합니다.
+터미널 어디서나 `winemoji` 명령어를 실행할 수 있도록 설치를 진행합니다.
+
+**원라인 간편 설치 (추천):**
+```bash
+curl -fsSL https://raw.githubusercontent.com/kmbzn/project-winemoji/main/install.sh | bash
+```
+
+**수동 설치:**
+본 repository를 `git clone`한 후, 프로젝트 폴더 내부에서 아래 명령어를 실행하여 수동으로 설치합니다.
 ```bash
 ./winemoji --install
 ```
+
 > [!NOTE]  
-> 위 명령어는 사용자 계정의 `~/.local/bin/winemoji` 경로에 심볼릭 링크를 생성합니다. 해당 경로가 시스템 환경변수 `PATH`에 등록되어 있는지 확인해 주세요. 등록되어 있지 않다면 `export PATH="$HOME/.local/bin:$PATH"`를 셸 설정 파일(예: `.bashrc`, `.zshrc`)에 추가하세요.
+> 위 명령어를 실행하면 `~/.local/share/winemoji` 경로에 프로젝트가 설치되고, 사용자 계정의 `~/.local/bin/winemoji` 경로에 심볼릭 링크가 생성됩니다. 해당 경로가 시스템 환경변수 `PATH`에 등록되어 있는지 확인해 주세요. 등록되어 있지 않다면 `export PATH="$HOME/.local/bin:$PATH"`를 셸 설정 파일(예: `.bashrc`, `.zshrc`)에 추가하세요.
 
 #### 2.2.2. 명령어 사용법
 ```bash
