@@ -27,14 +27,14 @@
 
 | 분류 | 폰트 이름 | 다운로드 링크 |
 | :--- | :--- | :--- |
-| **나눔 계열** | 나눔고딕 | [NanumGothic-winemoji.ttf](fonts/NanumGothic-winemoji.ttf) |
-| | 나눔명조 | [NanumMyeongjo-winemoji.ttf](fonts/NanumMyeongjo-winemoji.ttf) |
-| | 나눔바른고딕 | [NanumBarunGothic-winemoji.ttf](fonts/NanumBarunGothic-winemoji.ttf) |
-| **모던 고딕** | 프리텐다드 (Pretendard) | [Pretendard-Regular-winemoji.ttf](fonts/Pretendard-Regular-winemoji.ttf) |
-| | IBM Plex Sans KR | [IBMPlexSansKR-winemoji.ttf](fonts/IBMPlexSansKR-winemoji.ttf) |
-| **개성있는 폰트** | 주아 (Jua) | [Jua-winemoji.ttf](fonts/Jua-winemoji.ttf) |
-| | 도현 (DoHyeon) | [DoHyeon-winemoji.ttf](fonts/DoHyeon-winemoji.ttf) |
-| | 해바라기 (Sunflower) | [Sunflower-winemoji.ttf](fonts/Sunflower-winemoji.ttf) |
+| **나눔 계열** | 나눔고딕 | [`NanumGothic-winemoji.ttf`](fonts/NanumGothic-winemoji.ttf) |
+| | 나눔명조 | [`NanumMyeongjo-winemoji.ttf`](fonts/NanumMyeongjo-winemoji.ttf) |
+| | 나눔바른고딕 | [`NanumBarunGothic-winemoji.ttf`](fonts/NanumBarunGothic-winemoji.ttf) |
+| **모던 고딕** | 프리텐다드 (Pretendard) | [`Pretendard-Regular-winemoji.ttf`](fonts/Pretendard-Regular-winemoji.ttf) |
+| | IBM Plex Sans KR | [`IBMPlexSansKR-winemoji.ttf`](fonts/IBMPlexSansKR-winemoji.ttf) |
+| **개성있는 폰트** | 주아 (Jua) | [`Jua-winemoji.ttf`](fonts/Jua-winemoji.ttf) |
+| | 도현 (DoHyeon) | [`DoHyeon-winemoji.ttf`](fonts/DoHyeon-winemoji.ttf) |
+| | 해바라기 (Sunflower) | [`Sunflower-winemoji.ttf`](fonts/Sunflower-winemoji.ttf) |
 | | 고운돋움 (GowunDodum) | [GowunDodum-winemoji.ttf](fonts/GowunDodum-winemoji.ttf) |
 | | 검은고딕 (BlackHanSans) | [BlackHanSans-winemoji.ttf](fonts/BlackHanSans-winemoji.ttf) |
 
