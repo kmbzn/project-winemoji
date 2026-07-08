@@ -19,46 +19,7 @@
 
 추가로, 빌더를 직접 돌리기 번거로운 사용자들을 위해 저작권 문제로부터 자유로운 **11종의 무료 한글 폰트 Pre-built 파일**도 함께 제공합니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있습니다.)
 
-## 1. Builder
-
-**Winemoji Builder**를 사용하면, 사용자가 적용하고자 하는 폰트에 이모지를 손쉽게 병합할 수 있습니다.
-
-> **라이선스 주의사항 (License Compliance)**  
-> Winemoji Builder를 사용하여 폰트를 병합 및 수정할 때는 **반드시 원본 폰트의 라이선스(저작권)를 확인하고 준수하셔야 합니다.**  
-> 개인적인 용도로만 수정이 허용되는지, 재배포가 불가능한 상용 폰트인지 등을 확인하시기 바라며, 이로 인해 발생하는 모든 저작권 분쟁의 책임은 사용자 본인에게 있습니다. 가급적 OFL(Open Font License) 계열의 폰트 사용을 권장합니다.
-
-### 실행 방법
-```bash
-cd builder
-./run.sh
-```
-
-### 1.1. 빌더 실행 및 폰트 선택
-```bash
-cd builder
-./run.sh
-```
-본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 드롭다운 메뉴를 클릭하여 폰트를 선택하세요.
-
-<p align="center">
-  <img src="img/builder_initial.webp" width="80%" alt="Builder Initial" />
-</p>
-
-### 1.2. 폰트 병합 진행
-하단의 **Build Winemoji** 버튼을 클릭하면 폰트 병합이 진행됩니다. 
-
-<p align="center">
-  <img src="img/builder_building.webp" width="80%" alt="Builder Building" />
-</p>
-
-### 1.3. 완료
-성공적으로 빌드가 완료되면 결과물은 자동으로 기존 폰트가 있는 경로에 저장됩니다. (권한 문제로 저장이 불가한 경우 `~/.local/share/fonts` 에 저장)
-
-<p align="center">
-  <img src="img/builder_success.webp" width="80%" alt="Builder Success" />
-</p>
-
-## 2. 폰트만 바로 사용하기
+## 1. 폰트만 바로 사용하기
 
 빌더를 직접 실행하지 않아도, 폰트만 적용할 수 있도록 저작권 이슈로부터 자유로운 한글 폰트 11종에 이모지를 미리 적용하여 `fonts/` 폴더에 담아두었습니다. (폰트 목록은 추후 업데이트를 통해 변경될 수 있음)
 
@@ -86,6 +47,45 @@ cd builder
     cp fonts/Pretendard-Regular-winemoji.ttf ~/.local/share/fonts/
     fc-cache -fv
     ```
+
+## 2. Builder (직접 폰트 커스텀하기)
+
+**Winemoji Builder**를 사용하면, 사용자가 적용하고자 하는 폰트에 이모지를 손쉽게 병합할 수 있습니다.
+
+> **라이선스 주의사항 (License Compliance)**  
+> Winemoji Builder를 사용하여 폰트를 병합 및 수정할 때는 **반드시 원본 폰트의 라이선스(저작권)를 확인하고 준수하셔야 합니다.**  
+> 개인적인 용도로만 수정이 허용되는지, 재배포가 불가능한 상용 폰트인지 등을 확인하시기 바라며, 이로 인해 발생하는 모든 저작권 분쟁의 책임은 사용자 본인에게 있습니다. 가급적 OFL(Open Font License) 계열의 폰트 사용을 권장합니다.
+
+### 실행 방법
+```bash
+cd builder
+./run.sh
+```
+
+### 2.1. 빌더 실행 및 폰트 선택
+```bash
+cd builder
+./run.sh
+```
+본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 드롭다운 메뉴를 클릭하여 폰트를 선택하세요.
+
+<p align="center">
+  <img src="img/builder_initial.webp" width="60%" alt="Builder Initial" />
+</p>
+
+### 2.2. 폰트 병합 진행
+하단의 **Build Winemoji** 버튼을 클릭하면 폰트 병합이 진행됩니다. 
+
+<p align="center">
+  <img src="img/builder_building.webp" width="60%" alt="Builder Building" />
+</p>
+
+### 2.3. 완료
+성공적으로 빌드가 완료되면 결과물은 자동으로 기존 폰트가 있는 경로에 저장됩니다. (권한 문제로 저장이 불가한 경우 `~/.local/share/fonts` 에 저장)
+
+<p align="center">
+  <img src="img/builder_success.webp" width="60%" alt="Builder Success" />
+</p>
 
 ## 카카오톡 적용 방법
 1. 카카오톡 설정 창(⚙️ → 설정 → 화면 → 기본 → 글씨체)을 엽니다.
