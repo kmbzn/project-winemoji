@@ -1,0 +1,54 @@
+#!/bin/bash
+set -e
+
+# Get the absolute path of this script, resolving symlinks
+REAL_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$( cd "$( dirname "$REAL_PATH" )" && pwd )"
+BUILDER_DIR="$SCRIPT_DIR/builder"
+
+# CLI installation function
+install_cli() {
+    LOCAL_BIN="$HOME/.local/bin"
+    mkdir -p "$LOCAL_BIN"
+    
+    TARGET_LINK="$LOCAL_BIN/winemoji"
+    
+    if [ -L "$TARGET_LINK" ]; then
+        rm "$TARGET_LINK"
+    elif [ -f "$TARGET_LINK" ]; then
+        echo "Warning: A regular file already exists at $TARGET_LINK. Replacing it..."
+        rm "$TARGET_LINK"
+    fi
+    
+    ln -s "$SCRIPT_DIR/winemoji" "$TARGET_LINK"
+    echo "[+] Successfully created symlink at $TARGET_LINK"
+    
+    # Check if local bin is in PATH
+    if [[ :$PATH: != *:$LOCAL_BIN:* ]]; then
+        echo "Warning: $LOCAL_BIN is not in your PATH."
+        echo "Please add it to your PATH by adding the following line to your shell profile (e.g., ~/.bashrc or ~/.zshrc):"
+        echo 'export PATH="$HOME/.local/bin:$PATH"'
+    else
+        echo "[+] 'winemoji' command is now available from anywhere!"
+    fi
+    exit 0
+}
+
+# Check for install option
+if [ "$1" == "--install" ]; then
+    install_cli
+fi
+
+# Ensure python virtual environment and requirements are satisfied
+if [ ! -d "$BUILDER_DIR/.venv" ]; then
+    echo "[*] Creating virtual environment..."
+    python3 -m venv --system-site-packages "$BUILDER_DIR/.venv"
+    source "$BUILDER_DIR/.venv/bin/activate"
+    echo "[*] Installing dependencies..."
+    pip install -r "$BUILDER_DIR/requirements.txt" --quiet
+else
+    source "$BUILDER_DIR/.venv/bin/activate"
+fi
+
+# Run python CLI script
+python3 "$BUILDER_DIR/cli.py" "$@"

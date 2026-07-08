@@ -49,56 +49,75 @@
 
 ## 2. Builder (직접 폰트 커스텀하기)
 
-**Winemoji Builder**를 사용하면, 사용자가 적용하고자 하는 폰트에 이모지를 손쉽게 병합할 수 있습니다.
+**Winemoji Builder**를 사용하면, 사용자가 적용하고자 하는 폰트에 이모지를 손쉽게 병합할 수 있습니다. GUI 프로그램 또는 명령어(CLI)를 통해 이용할 수 있습니다.
 
 > **라이선스 주의사항 (License Compliance)**  
 > Winemoji Builder를 사용하여 폰트를 병합 및 수정할 때는 **반드시 원본 폰트의 라이선스(저작권)를 확인하고 준수하셔야 합니다.**  
 > 개인적인 용도로만 수정이 허용되는지, 재배포가 불가능한 상용 폰트인지 등을 확인하시기 바라며, 이로 인해 발생하는 모든 저작권 분쟁의 책임은 사용자 본인에게 있습니다. 가급적 OFL(Open Font License) 계열의 폰트 사용을 권장합니다.
 
-### 실행 방법
-```bash
-cd builder
-./run.sh
-```
+### 2.1. GUI 실행 방법 (창 모드)
 
-### 2.1. 빌더 실행 및 폰트 선택
 ```bash
 cd builder
 ./run.sh
 ```
 본 repository를 `git clone`한 후 터미널에서 위 명령어를 실행하면 GUI 창이 열립니다. 'Base Font' 드롭다운 메뉴를 클릭하여 폰트를 선택하세요.
 
+### 2.2. CLI 실행 방법 (명령어 모드)
+
+터미널에서 `winemoji` 명령어를 사용하는 것도 가능합니다.
+
+#### 2.2.1. 명령어 등록(설치) 방법
+터미널 어디서나 `winemoji` 명령어를 실행할 수 있도록 홈 디렉토리 하위에 링크를 등록합니다.
+```bash
+./winemoji --install
+```
+> [!NOTE]  
+> 위 명령어는 사용자 계정의 `~/.local/bin/winemoji` 경로에 심볼릭 링크를 생성합니다. 해당 경로가 시스템 환경변수 `PATH`에 등록되어 있는지 확인해 주세요. 등록되어 있지 않다면 `export PATH="$HOME/.local/bin:$PATH"`를 셸 설정 파일(예: `.bashrc`, `.zshrc`)에 추가하세요.
+
+#### 2.2.2. 명령어 사용법
+```bash
+# 도움말 및 사용 가능 옵션 확인
+winemoji --help
+
+# 기본 사용법 (원본 폰트 지정, 결과물은 원본 폰트와 같은 경로에 생성)
+winemoji -b /path/to/font.ttf
+
+# 출력 경로 직접 지정
+winemoji -b /path/to/font.ttf -o /custom/path/output.ttf
+
+# 다른 이모지 폰트 소스 사용
+winemoji -b /path/to/font.ttf -e /path/to/custom_emoji.ttf
+```
+
 <p align="center">
   <img src="img/builder_initial.webp" width="60%" alt="Builder Initial" />
 </p>
 
-### 2.2. 폰트 병합 진행
+### 2.3. 폰트 병합 진행
 하단의 **Build Winemoji** 버튼을 클릭하면 폰트 병합이 진행됩니다. 
 
 <p align="center">
   <img src="img/builder_building.webp" width="60%" alt="Builder Building" />
 </p>
 
-### 2.3. 완료
+### 2.4. 완료
 성공적으로 빌드가 완료되면 결과물은 자동으로 기존 폰트가 있는 경로에 저장됩니다. (권한 문제로 저장이 불가한 경우 `~/.local/share/fonts` 에 저장)
 
 <p align="center">
   <img src="img/builder_success.webp" width="60%" alt="Builder Success" />
 </p>
 
-## 카카오톡 적용 방법
+## 3. 카카오톡 적용 방법
 1. 카카오톡 설정 창(⚙️ → 설정 → 화면 → 기본 → 글씨체)을 엽니다.
 2. 글씨체 목록에서 **설치하신 폰트 이름 + Winemoji** (예: `Pretendard Regular Winemoji`)를 선택합니다.
-
-<p align="center">
-  <img src="img/settings.webp" width="60%" alt="KakaoTalk Settings" />
-</p>
-
+  <p align="center">
+    <img src="img/settings.webp" width="60%" alt="KakaoTalk Settings" />
+  </p>
 3. 카카오톡을 재시작하면 한글과 흑백 이모지가 정상적으로 출력됩니다.
-
-<p align="center">
-  <img src="img/restart.webp" alt="Restart KakaoTalk" />
-</p>
+  <p align="center">
+    <img src="img/restart.webp" alt="Restart KakaoTalk" />
+  </p>
 
 ## Why not color emojis?
 본 프로젝트에서는 컬러 이모지 계열을 사용하지 않고 흑백(Noto Emoji)을 채택했습니다.
