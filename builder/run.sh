@@ -4,12 +4,11 @@ set -e
 # Change directory to script location
 cd "$(dirname "$0")"
 
-# Register desktop application shortcut if it doesn't exist
+# Register desktop application shortcut (overwrites to keep paths up-to-date)
 DESKTOP_FILE="$HOME/.local/share/applications/winemoji.desktop"
-if [ ! -f "$DESKTOP_FILE" ]; then
-    echo "Registering desktop shortcut..."
-    mkdir -p "$HOME/.local/share/applications"
-    cat << EOL > "$DESKTOP_FILE"
+echo "Registering desktop shortcut..."
+mkdir -p "$HOME/.local/share/applications"
+cat << EOL > "$DESKTOP_FILE"
 [Desktop Entry]
 Name=Winemoji Builder
 Exec=$(pwd)/run.sh
@@ -19,9 +18,8 @@ Type=Application
 Path=$(pwd)
 Categories=Utility;
 EOL
-    chmod +x "$DESKTOP_FILE"
-    update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
-fi
+chmod +x "$DESKTOP_FILE"
+update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
 
 # Check for GTK dependencies
 if ! dpkg -s python3-gi >/dev/null 2>&1; then

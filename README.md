@@ -71,14 +71,16 @@ cd builder
 #### 2.2.1. 명령어 등록(설치) 방법
 터미널 어디서나 `winemoji` 명령어를 실행할 수 있도록 설치를 진행합니다.
 
-**원라인 간편 설치 (추천):**
+**간편 설치**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/kmbzn/project-winemoji/main/install.sh | bash
 ```
 
-**수동 설치:**
+**수동 설치**
 본 repository를 `git clone`한 후, 프로젝트 폴더 내부에서 아래 명령어를 실행하여 수동으로 설치합니다.
 ```bash
+git clone git@github.com:kmbzn/project-winemoji.git
+cd project-winemoji/builder
 ./winemoji --install
 ```
 
